@@ -71,7 +71,9 @@ export class GatewayService extends Service {
     this.server.use(bodyParser.json());
     // for parsing application/x-www-form-urlencoded
     this.server.use(bodyParser.urlencoded({ extended: false }));
-    this.server.use(cors());
+    this.server.use(cors({
+      origin: "*",
+    }));
     this.server.use(debug()),
     this.server.enable("trust proxy");
     // for parsing application/json
