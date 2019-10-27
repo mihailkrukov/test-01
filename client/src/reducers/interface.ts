@@ -1,3 +1,4 @@
+import { VariantType } from "notistack";
 
 export interface IAuthenticationReduxState {
   loggedIn: boolean,
@@ -9,13 +10,15 @@ export interface IRegistrationReduxState {
   registering: boolean,
 }
 
-export interface IAlertReduxState {
-  type?: string,
-  message?: string,
+export interface ISnackbarReduxState {
+  [key: string]: {
+    message: string,
+    variant: VariantType,
+  }
 }
 
 export interface IRootReduxState {
   authentication: IAuthenticationReduxState,
   registration: IRegistrationReduxState,
-  alert: IAlertReduxState,
+  snackbar: ISnackbarReduxState,
 }

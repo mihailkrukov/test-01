@@ -1,8 +1,9 @@
-import { ActionType } from "./types";
+import { ActionType } from "../types";
 
-export const signInRequest = () => {
+export const signInRequest = (login: string, password: string) => {
   return {
     type: ActionType.USERS_SIGNIN_REQUEST,
+    payload: { login, password },
   }
 };
 
@@ -13,8 +14,10 @@ export const signInSuccess = (payload: string) => {
   }
 };
 
-export const signInFailure = () => {
+export const signInFailure = (payload: string) => {
   return {
     type: ActionType.USERS_SIGNIN_FAILURE,
+    payload,
   }
 };
+
